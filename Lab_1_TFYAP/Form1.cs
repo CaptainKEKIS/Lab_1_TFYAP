@@ -14,7 +14,6 @@ namespace Lab_1_TFYAP
     public partial class Form1 : Form
     {
         string FileName = string.Empty;
-        string FileText = string.Empty;
         bool Changed = false;
 
         public Form1()
@@ -24,15 +23,18 @@ namespace Lab_1_TFYAP
         }
         void SaveAs()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text files(*.txt)|*.txt";
-            saveFileDialog.FilterIndex = 1;
-            saveFileDialog.RestoreDirectory = true;
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                FileName = saveFileDialog.FileName;
-                File.WriteAllText(FileName, richTextBox1.Text);
-                Changed = false;
+
+                saveFileDialog.Filter = "Text files(*.txt)|*.txt";
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.RestoreDirectory = true;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileName = saveFileDialog.FileName;
+                    File.WriteAllLines(FileName, InputRichTextBox.Lines);
+                    Changed = false;
+                }
             }
         }
 
@@ -45,9 +47,9 @@ namespace Lab_1_TFYAP
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 FileName = openFileDialog.FileName;
-                FileText = File.ReadAllText(FileName);
-                richTextBox1.Text = FileText;
+                InputRichTextBox.Lines = File.ReadAllLines(FileName);
                 Changed = false;
+                InputRichTextBox.ClearUndo();
             }
         }
 
@@ -59,17 +61,25 @@ namespace Lab_1_TFYAP
                 if (Result == DialogResult.Yes)
                 {
                     SaveAs();
+                    InputRichTextBox.Text = string.Empty;
+                    FileName = string.Empty;
+                    InputRichTextBox.ClearUndo();
                 }
                 else if (Result == DialogResult.No)
                 {
-                    richTextBox1.Text = string.Empty;
+                    InputRichTextBox.Text = string.Empty;
+                    FileName = string.Empty;
                     Changed = false; //?
+                    InputRichTextBox.ClearUndo();
                 }
             }
             else
             {
-                richTextBox1.Text = string.Empty;
+                InputRichTextBox.Text = string.Empty;
+                FileName = string.Empty;
                 Changed = false; //?
+                InputRichTextBox.ClearUndo();
+
             }
         }
 
@@ -81,14 +91,14 @@ namespace Lab_1_TFYAP
             }
             else
             {
-                File.WriteAllText(FileName, richTextBox1.Text);
+                File.WriteAllText(FileName, InputRichTextBox.Text);
                 Changed = false;//?
             }
         }
 
         void CloseFile()
         {
-            richTextBox1.Text = string.Empty;
+            InputRichTextBox.Text = string.Empty;
             FileName = string.Empty;
             Changed = false;
         }
@@ -157,12 +167,14 @@ namespace Lab_1_TFYAP
 
         private void копироватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            string SelectedText = string.Empty;
+            SelectedText = InputRichTextBox.SelectedText;
+            Clipboard.SetText(SelectedText);
         }
 
         private void вставитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            InputRichTextBox.SelectedText = Clipboard.GetText();
         }
 
         private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -178,6 +190,24 @@ namespace Lab_1_TFYAP
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             Changed = true;
+            if(InputRichTextBox.CanRedo == true)
+            {
+                вернутьToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                вернутьToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void отменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InputRichTextBox.Undo();
+        }
+
+        private void вернутьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InputRichTextBox.Redo();
         }
     }
 }

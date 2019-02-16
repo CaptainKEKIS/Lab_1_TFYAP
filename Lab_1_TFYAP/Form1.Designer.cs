@@ -62,8 +62,10 @@
             this.вставкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.справкаToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.InputRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.OutputRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.отменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -148,7 +150,9 @@
             this.правкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.копироватьToolStripMenuItem,
             this.вставитьToolStripMenuItem,
-            this.вырезатьToolStripMenuItem});
+            this.вырезатьToolStripMenuItem,
+            this.отменитьToolStripMenuItem,
+            this.вернутьToolStripMenuItem});
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
             this.правкаToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.правкаToolStripMenuItem.Text = "Правка";
@@ -354,36 +358,53 @@
             this.справкаToolStripButton.Text = "Спр&авка";
             this.справкаToolStripButton.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
-            // richTextBox1
+            // InputRichTextBox
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 49);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(800, 305);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.InputRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InputRichTextBox.Location = new System.Drawing.Point(0, 49);
+            this.InputRichTextBox.Name = "InputRichTextBox";
+            this.InputRichTextBox.Size = new System.Drawing.Size(800, 305);
+            this.InputRichTextBox.TabIndex = 2;
+            this.InputRichTextBox.Text = "";
+            this.InputRichTextBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
-            // richTextBox2
+            // OutputRichTextBox
             // 
-            this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.richTextBox2.Location = new System.Drawing.Point(0, 354);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(800, 96);
-            this.richTextBox2.TabIndex = 3;
-            this.richTextBox2.Text = "";
+            this.OutputRichTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.OutputRichTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.OutputRichTextBox.Location = new System.Drawing.Point(0, 354);
+            this.OutputRichTextBox.Name = "OutputRichTextBox";
+            this.OutputRichTextBox.ReadOnly = true;
+            this.OutputRichTextBox.Size = new System.Drawing.Size(800, 96);
+            this.OutputRichTextBox.TabIndex = 3;
+            this.OutputRichTextBox.Text = "";
+            // 
+            // отменитьToolStripMenuItem
+            // 
+            this.отменитьToolStripMenuItem.Name = "отменитьToolStripMenuItem";
+            this.отменитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.отменитьToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.отменитьToolStripMenuItem.Text = "Отменить";
+            this.отменитьToolStripMenuItem.Click += new System.EventHandler(this.отменитьToolStripMenuItem_Click);
+            // 
+            // вернутьToolStripMenuItem
+            // 
+            this.вернутьToolStripMenuItem.Enabled = false;
+            this.вернутьToolStripMenuItem.Name = "вернутьToolStripMenuItem";
+            this.вернутьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.вернутьToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.вернутьToolStripMenuItem.Text = "Вернуть";
+            this.вернутьToolStripMenuItem.Click += new System.EventHandler(this.вернутьToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.InputRichTextBox);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.OutputRichTextBox);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -409,8 +430,8 @@
         private System.Windows.Forms.ToolStripButton вставкаToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton справкаToolStripButton;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox InputRichTextBox;
+        private System.Windows.Forms.RichTextBox OutputRichTextBox;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem;
@@ -433,6 +454,8 @@
         private System.Windows.Forms.ToolStripMenuItem алгоритмАнализаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem листингToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокЛитературыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отменитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вернутьToolStripMenuItem;
     }
 }
 
