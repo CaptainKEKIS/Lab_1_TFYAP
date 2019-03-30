@@ -22,6 +22,7 @@ namespace Lab_1_TFYAP
             InitializeComponent();
             //Form1.ActiveForm.Name = FileName + "TFYAP";
         }
+
         void SaveAs()
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -258,6 +259,7 @@ namespace Lab_1_TFYAP
         }
 
         enum State { Q0, Q1, Q2, Q3, Q4, Error }
+
         static State Transit(State s, char c)
         {
             switch (s)
@@ -307,7 +309,7 @@ namespace Lab_1_TFYAP
                     return State.Error;
             }
         }
-
+        
         static State TransitPULEMETA(State s, char c)
         {
             switch (s)
@@ -327,6 +329,13 @@ namespace Lab_1_TFYAP
                 default:
                     return State.Error;
             }
+        }
+
+        private void содержаниеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Soderjanie FormSoderjanie = new Soderjanie();
+            FormSoderjanie.Owner = this;
+            FormSoderjanie.Show();
         }
     }
 }

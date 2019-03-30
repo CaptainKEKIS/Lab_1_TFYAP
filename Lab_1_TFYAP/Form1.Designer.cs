@@ -53,6 +53,9 @@
             this.листингToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокЛитературыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.пускToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aNIGILATORNAYAPUSHKAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aVTOMATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pULEMETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.создатьToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -66,9 +69,6 @@
             this.справкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.InputRTP = new System.Windows.Forms.RichTextBox();
             this.OutputRTB = new System.Windows.Forms.RichTextBox();
-            this.aNIGILATORNAYAPUSHKAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aVTOMATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pULEMETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -224,6 +224,7 @@
             this.содержаниеToolStripMenuItem.Name = "содержаниеToolStripMenuItem";
             this.содержаниеToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.содержаниеToolStripMenuItem.Text = "Содержание";
+            this.содержаниеToolStripMenuItem.Click += new System.EventHandler(this.содержаниеToolStripMenuItem_Click);
             // 
             // постановкаЗадачиToolStripMenuItem
             // 
@@ -277,6 +278,27 @@
             this.пускToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.пускToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.пускToolStripMenuItem.Text = "Пуск";
+            // 
+            // aNIGILATORNAYAPUSHKAToolStripMenuItem
+            // 
+            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Name = "aNIGILATORNAYAPUSHKAToolStripMenuItem";
+            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Text = "ANIGILATORNAYA PUSHKA(1)";
+            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Click += new System.EventHandler(this.ANIGILATORNAYAPUSHKAToolStripMenuItem_Click);
+            // 
+            // aVTOMATToolStripMenuItem
+            // 
+            this.aVTOMATToolStripMenuItem.Name = "aVTOMATToolStripMenuItem";
+            this.aVTOMATToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.aVTOMATToolStripMenuItem.Text = "AVTOMAT(2a)";
+            this.aVTOMATToolStripMenuItem.Click += new System.EventHandler(this.AVTOMATToolStripMenuItem_Click);
+            // 
+            // pULEMETToolStripMenuItem
+            // 
+            this.pULEMETToolStripMenuItem.Name = "pULEMETToolStripMenuItem";
+            this.pULEMETToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.pULEMETToolStripMenuItem.Text = "PULEMET(2b)";
+            this.pULEMETToolStripMenuItem.Click += new System.EventHandler(this.PULEMETToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -403,27 +425,6 @@
             this.OutputRTB.Size = new System.Drawing.Size(800, 96);
             this.OutputRTB.TabIndex = 3;
             this.OutputRTB.Text = "";
-            // 
-            // aNIGILATORNAYAPUSHKAToolStripMenuItem
-            // 
-            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Name = "aNIGILATORNAYAPUSHKAToolStripMenuItem";
-            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
-            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Text = "ANIGILATORNAYA PUSHKA(1)";
-            this.aNIGILATORNAYAPUSHKAToolStripMenuItem.Click += new System.EventHandler(this.ANIGILATORNAYAPUSHKAToolStripMenuItem_Click);
-            // 
-            // aVTOMATToolStripMenuItem
-            // 
-            this.aVTOMATToolStripMenuItem.Name = "aVTOMATToolStripMenuItem";
-            this.aVTOMATToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
-            this.aVTOMATToolStripMenuItem.Text = "AVTOMAT(2a)";
-            this.aVTOMATToolStripMenuItem.Click += new System.EventHandler(this.AVTOMATToolStripMenuItem_Click);
-            // 
-            // pULEMETToolStripMenuItem
-            // 
-            this.pULEMETToolStripMenuItem.Name = "pULEMETToolStripMenuItem";
-            this.pULEMETToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
-            this.pULEMETToolStripMenuItem.Text = "PULEMET(2b)";
-            this.pULEMETToolStripMenuItem.Click += new System.EventHandler(this.PULEMETToolStripMenuItem_Click);
             // 
             // Form1
             // 
